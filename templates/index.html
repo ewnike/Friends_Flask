@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+  </head>
+  <body>
+    <center>
+      <h1>Welcome, Friends!</h1>
+      <table>
+        <tr>
+          <thead>
+          <th style = "padding: 6px;"><h2>First Name</h2></th>
+          <th style = "padding: 6px;"><h2>Last Name</h2></th>
+          <th style = "padding: 6px;"><h2>Age</h2></th>
+          <th style = "padding: 6px;"><h2>Met On</h2></th>
+          <th style = "padding: 6px;"><h2>Email</h2></th>
+          <th style = "padding: 6px;"><h2>Edit</h2></th>
+          <th style = "padding: 6px;"><h2>Delete</h2></th>
+        </thead>
+        </tr>
+        <tbody>
+          {% for friend in friends %}
+            <tr>
+              <td style = "padding: 6px;">{{friend.first_name}}</td>
+              <td style = "padding: 6px;">{{friend.last_name}}</td>
+              <td style = "padding: 6px;">{{friend.age}}</td>
+              <td style = "padding: 6px;">{{friend.met_on}}</td>
+              <td style = "padding: 6px;">{{friend.email}}</td>
+              <td><a href='/update/{{friend['id']}}'><button type="button" name="Edit">Edit</button></a></td>
+              <td><form action = '/remove_friend/{{friend['id']}}', method="POST"><input type=submit value = "Delete" style = "width:95%"></form></td>
+            </tr>
+          {% endfor %}
+      </table><br><br><br>
+      <h1>Add a Friend:</h1>
+        <form  action="/friends" method="POST">
+          First Name: <br>
+          <input type="text" name="first_name"><br>
+          Last Name: <br>
+          <input type="text" name="last_name"><br>
+          Email: <br>
+          <input type="text" name="email"><br>
+          Age:<br>
+          <input type="text" name="age"><br>
+          Date Met:<br>
+          <input type="date" name="met_on"><br><br>
+          <input type="submit" name="Submit">
+        </form>
+      </center>
+  </body>
+</html>

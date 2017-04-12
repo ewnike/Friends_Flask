@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit</title>
+  </head>
+  <body>
+    <center>
+
+<h1>Update  Information</h1>
+
+<form  action="/friends_edit" method="POST">
+  <input type="hidden" name="data_id" value="{{data.data_id}}">
+  First Name:<br>
+  <input type="text" name="first_name" value="{{friend_to_edit.first_name}}"><br>
+  Last Name:<br>
+  <input type="text" name="last_name" value="{{friend_to_edit.last_name}}"><br>
+  Age:<br>
+  <input type="text" name="age" value="{{friend_to_edit.age}}"><br>
+  Met On:<br>
+  <input type="date" name="met_on" value="{{friend_to_edit.met_on}}"><br>
+  Email: <br>
+  <input type="text" name="email" value="{{friend_to_edit.email}}"><br><br>
+  <input type="submit" name="Update">
+</form>
+
+</center>
+
+  </body>
+</html>
